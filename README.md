@@ -38,7 +38,7 @@ mvn spring-boot:run
 Shop Apotheke GitHub Discovery Service.postman_collection.json
 ```
 
-> **Create Customer API:** Creates a new Customer.
+> **Search Repositories:** Search GitHub Repositories.
 
 * Actuator Health
 > [Health Page](http://localhost:8099/actuator/health)
