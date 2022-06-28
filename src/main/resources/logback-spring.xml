@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <springProfile name="default">
+
+        <property name="APP_LOGS" value="./logs/shop_apotheke_github_discovery_service.log"/>
+        <property name="ARCHIVED_APP_LOGS" value="./logs/archived/shop_apotheke_github_discovery_service.%d{yyyy-MM-dd}.%i.log"/>
+
+        <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+            <file>${APP_LOGS}</file>
+
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${ARCHIVED_APP_LOGS}</fileNamePattern>
+                <maxFileSize>10MB</maxFileSize>
+                <totalSizeCap>1GB</totalSizeCap>
+                <maxHistory>10</maxHistory>
+            </rollingPolicy>
+
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+                <Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
+            </encoder>
+        </appender>
+
+        <root level="info">
+            <appender-ref ref="FILE-ROLLING"/>
+        </root>
+
+    </springProfile>
+
+</configuration>
